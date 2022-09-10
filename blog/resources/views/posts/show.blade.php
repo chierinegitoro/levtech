@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
+        <div class="footer">
+            <a href="/">戻る</a>
+        </div>
         <h1 class="title">
             {{ $post->title }}
         </h1>
@@ -18,8 +21,6 @@
                 <p>{{ $post->body }}</p>    
             </div>
         </div>
-        <div class="footer">
-            <a href="/">戻る</a>
-        </div>
+        <p class = "edit">[<a href = "/posts/{{$post->id}}/edit">編集</a>]</p>
     </body>
 </html>
