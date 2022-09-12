@@ -4,6 +4,16 @@
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
+        <script type = "text/javascript">
+            function delete_check(){
+                if(window.confirm("削除します。よろしいですか？")){
+                    return true;
+                }else{
+                    window.alert("キャンセルしました。");
+                    return false;
+                }
+            }
+        </script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
@@ -25,6 +35,14 @@
                 </h2>
                 
                 <p class='body'>{{$post->body}}</p>
+                
+                
+                
+                <form action = "/posts/{{$post->id}}" id = "form_{{$post->id}}" method = 'post' style = "display:inline">
+                    @csrf
+                    @method("DELETE")
+                    <button onclick = "return delete_check()">delete</button>
+                </form>
             
             </div>
             
